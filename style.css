@@ -1,67 +1,73 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0eeee;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0eeee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-    font-size: 42px;
+  font-size: 42px;
 }
 
 img {
-    width: 300px;
-    border-radius: 10px;
+  width: 300px;
+  border-radius: 10px;
 }
 
 .foto {
-    display: flex;
-    justify-content: center;
-}
-
-a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-    border: #115e37 2px solid;
-    border-radius: 10%;
-    padding: 6px;
-    margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
 }
 
 header {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 15px;
-    width: 80%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 15px;
+  width: 80%;
 }
 
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    text-align: center;
-    width: 20%;
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: auto;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  border: #115e37 2px solid;
+  border-radius: 10%;
+  padding: 6px;
+  margin: 0px 8px 6px 8px;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .encabezado {
-    display: flex;
-    background-color: #3a8660;
-    margin-bottom: 20px;
+  display: flex;
+  background-color: #3a8660;
+  margin-bottom: 20px;
 }
 
 main {
-    padding: 0px 20px;
-    margin-bottom: 20px;
-    min-height: 70vh;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+  flex: 1;
 }
 
 footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #3a8660;
-    color: white;
-    position: relative;
-    bottom: 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #3a8660;
+  color: white;
+  position: relative;
+  bottom: 1px;
 }
