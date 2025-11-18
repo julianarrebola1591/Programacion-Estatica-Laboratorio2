@@ -19,8 +19,15 @@ formulario.addEventListener("submit", function (e) {
   const direccion = document.querySelector("#direccion");
   const provincia = document.querySelector("#provincia");
   const codPostal = document.querySelector("#cod-postal");
-  const metodo = document.querySelector("#correo-electronico");
-  const subcripcion = document.querySelector("#subcripcion");
+  const metodo = document.querySelector('input[name="metodo"]:checked');
+
+  if (metodo) {
+    console.log(metodo.value); // ejemplo: "email"
+  }
+
+  const subcripcion = document.querySelector(
+    'input[name="subcripcion"]:checked'
+  );
 
   const lista_campos = [
     nombre,
@@ -38,13 +45,14 @@ formulario.addEventListener("submit", function (e) {
   console.log("Cantidad de filas:", listaTr.length);
   console.log("Cantidad de campos:", lista_campos.length);
 
-  for (let i = 0; i < listaTr.length; i++) {
-    console.log("Iterando fila:", i);
-    for (let campo of lista_campos) {
-      console.log("  Campo:", campo.value);
-      const nuevoTd = document.createElement("td");
-      nuevoTd.textContent = campo.value;
-      listaTr[i].appendChild(nuevoTd);
-    }
+  let contador = 0;
+
+  for (let campo of lista_campos) {
+    console.log("  Campo:", campo.value);
+    const nuevoTd = document.createElement("td");
+    nuevoTd.textContent = campo.value;
+    console.log("Iterando fila:", contador);
+    listaTr[contador].appendChild(nuevoTd);
+    contador = contador + 1;
   }
 });
