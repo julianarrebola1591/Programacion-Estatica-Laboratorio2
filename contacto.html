@@ -11,6 +11,10 @@
     <div class="encabezado">
       <header>
         <h1>Julián Arrébola</h1>
+        <img
+          src="https://web.curza.uncoma.edu.ar/images/CURZAS.png"
+          alt="logo del CURZA"
+        />
       </header>
 
       <nav>
@@ -19,7 +23,6 @@
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
-
     <main>
       <h2>Contactate conmigo!</h2>
       <form action="" id="formulario">
@@ -87,58 +90,72 @@
           />
         </div>
 
-        <div class="form-dato">
-          <label>Metodo de Contacto:</label>
+        <div class="form-dato radios">
+          <label id="titulo-radio">Metodo de Contacto:</label>
 
-          <input
-            type="radio"
-            id="correo-electronico"
-            name="metodo"
-            value="correo-electronico"
-          />
-          <label for="correo-electronico">Via Email</label>
+          <div class="radio-grupo">
+            <input
+              type="radio"
+              id="correo-electronico"
+              name="metodo"
+              value="Email"
+            />
+            <label for="correo-electronico">Via Email</label>
 
-          <input
-            type="radio"
-            id="correo-postal"
-            name="metodo"
-            value="correo-postal"
-          />
-          <label for="correo-postal">Correo Postal</label>
+            <input
+              type="radio"
+              id="correo-postal"
+              name="metodo"
+              value="Correo Postal"
+            />
+            <label for="correo-postal">Correo Postal</label>
 
-          <input
-            type="radio"
-            id="metodo-telefono"
-            name="metodo"
-            value="metodo-telefono"
-          />
-          <label for="metodo-telefono">Teléfono</label>
+            <input
+              type="radio"
+              id="metodo-telefono"
+              name="metodo"
+              value="Telefono"
+            />
+            <label for="metodo-telefono">Teléfono</label>
+          </div>
         </div>
 
-        <div class="form-dato">
-          <label>Tipo de subscripción</label>
+        <div class="form-dato radios">
+          <label id="titulo-radio">Tipo de subscripción: </label>
 
-          <input
-            type="radio"
-            id="noticias"
-            name="subcripcion"
-            value="noticias"
-          />
-          <label for="noticias">Noticias</label>
+          <div class="radio-grupo">
+            <input
+              type="radio"
+              id="noticias"
+              name="subcripcion"
+              value="Noticias"
+            />
+            <label for="noticias">Noticias</label>
 
-          <input
-            type="radio"
-            id="promociones"
-            name="subcripcion"
-            value="promociones"
-          />
-          <label for="promociones">Promociones</label>
+            <input
+              type="radio"
+              id="promociones"
+              name="subcripcion"
+              value="Promociones"
+            />
+            <label for="promociones">Promociones</label>
 
-          <input type="radio" id="alertas" name="subcripcion" value="alertas" />
-          <label for="alertas">Alertas</label>
+            <input
+              type="radio"
+              id="alertas"
+              name="subcripcion"
+              value="Alertas"
+            />
+            <label for="alertas">Alertas</label>
 
-          <input type="radio" id="eventos" name="subcripcion" value="eventos" />
-          <label for="eventos">Eventos</label>
+            <input
+              type="radio"
+              id="eventos"
+              name="subcripcion"
+              value="Eventos"
+            />
+            <label for="eventos">Eventos</label>
+          </div>
         </div>
 
         <input type="submit" value="Cargar" />
@@ -146,8 +163,9 @@
 
       <table>
         <thead>
-          <th>Campo</th>
-          <th>Valor</th>
+          <tr id="head-tabla">
+            <th>Campo</th>
+          </tr>
         </thead>
 
         <tbody id="cuerpo-tabla">

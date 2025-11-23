@@ -7,6 +7,7 @@ document.querySelector("#telefono").addEventListener("click", limpearTelefono);
 const formulario = document.getElementById("formulario");
 const cuerpoTabla = document.getElementById("cuerpo-tabla");
 const listaTr = document.querySelectorAll("#cuerpo-tabla tr");
+const headTabla = document.querySelector("#head-tabla");
 
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -20,10 +21,6 @@ formulario.addEventListener("submit", function (e) {
   const provincia = document.querySelector("#provincia");
   const codPostal = document.querySelector("#cod-postal");
   const metodo = document.querySelector('input[name="metodo"]:checked');
-
-  if (metodo) {
-    console.log(metodo.value); // ejemplo: "email"
-  }
 
   const subcripcion = document.querySelector(
     'input[name="subcripcion"]:checked'
@@ -47,8 +44,13 @@ formulario.addEventListener("submit", function (e) {
 
   let contador = 0;
 
+  const nuevoTh = document.createElement("th");
+  nuevoTh.textContent = "Valor";
+  console.log(nuevoTh.textContent);
+  headTabla.appendChild(nuevoTh);
+
   for (let campo of lista_campos) {
-    console.log("  Campo:", campo.value);
+    console.log(" Campo:", campo.value);
     const nuevoTd = document.createElement("td");
     nuevoTd.textContent = campo.value;
     console.log("Iterando fila:", contador);
