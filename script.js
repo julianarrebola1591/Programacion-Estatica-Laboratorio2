@@ -58,3 +58,15 @@ formulario.addEventListener("submit", function (e) {
     contador = contador + 1;
   }
 });
+
+
+let btn = document.getElementById("btnArriba");
+
+window.onscroll = function () {
+    if (window.scrollY > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
