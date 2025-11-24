@@ -1,3 +1,33 @@
+// Esperar que el DOM se cague
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Botón de leer más del CV
+  const cv = document.getElementById("cv");
+  const btnLeerMas = document.getElementById("btnLeerMas");
+
+  btnLeerMas.addEventListener("click", () => {
+      cv.classList.toggle("overflow");
+
+      if (cv.classList.contains("overflow")) {
+          btnLeerMas.textContent = "Leer menos";
+      } else {
+          btnLeerMas.textContent = "Leer más";
+      }
+  });
+
+  //Mostrar botón para volver arriba
+  let btnArriba = document.getElementById("btnArriba");
+
+  window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+        if (window.scrollY > 200) {
+            btnArriba.style.display = "block";
+        } else {
+            btnArriba.style.display = "none";
+        }
+    });
+});
+
+
 function limpearTelefono() {
   document.querySelector("#telefono").value = "";
 }
@@ -9,8 +39,10 @@ const cuerpoTabla = document.getElementById("cuerpo-tabla");
 const listaTr = document.querySelectorAll("#cuerpo-tabla tr");
 const headTabla = document.querySelector("#head-tabla");
 
-formulario.addEventListener("submit", function (e) {
-  e.preventDefault();
+formulario.addEventListener("input", actualizarTabla);
+
+function actualizarTabla() {
+  cuerpoTabla.innerHTML = "";
 
   const nombre = document.querySelector("#nombre");
   const apellido = document.querySelector("#apellido");
@@ -39,34 +71,21 @@ formulario.addEventListener("submit", function (e) {
     subcripcion,
   ];
 
-  console.log("Cantidad de filas:", listaTr.length);
-  console.log("Cantidad de campos:", lista_campos.length);
+  const elementos = formulario.querySelectorAll("input, select, textarea");
+  elementos.forEach((elemento, index) => {
+    const valor = lista_campos[index]?.value || "";
+    const campo = document.querySelector(`label[for="${lista_campos[index]?.id}"]`);
+    const nuevaFila = document.createElement("tr");
+    if (!valor && !campo) return;
+    const nuevaCelda = document.createElement("td");
+    nuevaCelda.textContent = campo.textContent;
+    nuevaFila.appendChild(nuevaCelda);
 
-  let contador = 0;
-
-  const nuevoTh = document.createElement("th");
-  nuevoTh.textContent = "Valor";
-  console.log(nuevoTh.textContent);
-  headTabla.appendChild(nuevoTh);
-
-  for (let campo of lista_campos) {
-    console.log(" Campo:", campo.value);
-    const nuevoTd = document.createElement("td");
-    nuevoTd.textContent = campo.value;
-    console.log("Iterando fila:", contador);
-    listaTr[contador].appendChild(nuevoTd);
-    contador = contador + 1;
-  }
-});
-
-
-let btn = document.getElementById("btnArriba");
-
-window.onscroll = function () {
-    if (window.scrollY > 200) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
+    const nuevaCelda2 = document.createElement("td");
+    nuevaCelda2.textContent = valor;
+    nuevaFila.appendChild(nuevaCelda2);
+    
+    cuerpoTabla.appendChild(nuevaFila);
+  });
 };
 

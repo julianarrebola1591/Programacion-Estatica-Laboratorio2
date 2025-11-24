@@ -13,19 +13,19 @@
         <h1>Julián Arrébola</h1>
         <img
           src="https://web.curza.uncoma.edu.ar/images/CURZAS.png"
-          alt="logo del CURZA"
-        />
+          alt="logo del CURZA" />
       </header>
 
       <nav>
         <a href="index.html">Inicio</a>
         <a href="acercade.html">Sobre mí</a>
         <a href="contacto.html">Contacto</a>
+        <a href="juego.html">Juego de memoria</a>
       </nav>
     </div>
     <main>
       <h2>Contactate conmigo!</h2>
-      <form action="" id="formulario">
+      <form action id="formulario">
         <div class="form-dato">
           <label for="nombre">Nombre:</label>
           <input
@@ -33,8 +33,7 @@
             id="nombre"
             name="nombre"
             required
-            maxlength="20"
-          />
+            maxlength="20" />
         </div>
 
         <div class="form-dato">
@@ -68,8 +67,7 @@
             type="text"
             id="provincia"
             name="provincia"
-            list="lista-provincias"
-          />
+            list="lista-provincias" />
           <datalist id="lista-provincias">
             <option value="Rio Negro"></option>
             <option value="Santa Fe"></option>
@@ -86,8 +84,7 @@
             name="cod-postal"
             pattern="[A-Za-z]{1}[0-9]{4}[A-Za-z]{3}"
             title="Ingrese un codigo postal con el formato correcto. Ejemplo: R8500FNF"
-            maxlength="8"
-          />
+            maxlength="8" />
         </div>
 
         <div class="form-dato radios">
@@ -98,24 +95,21 @@
               type="radio"
               id="correo-electronico"
               name="metodo"
-              value="Email"
-            />
+              value="Email" />
             <label for="correo-electronico">Via Email</label>
 
             <input
               type="radio"
               id="correo-postal"
               name="metodo"
-              value="Correo Postal"
-            />
+              value="Correo Postal" />
             <label for="correo-postal">Correo Postal</label>
 
             <input
               type="radio"
               id="metodo-telefono"
               name="metodo"
-              value="Telefono"
-            />
+              value="Telefono" />
             <label for="metodo-telefono">Teléfono</label>
           </div>
         </div>
@@ -128,43 +122,38 @@
               type="radio"
               id="noticias"
               name="subcripcion"
-              value="Noticias"
-            />
+              value="Noticias" />
             <label for="noticias">Noticias</label>
 
             <input
               type="radio"
               id="promociones"
               name="subcripcion"
-              value="Promociones"
-            />
+              value="Promociones" />
             <label for="promociones">Promociones</label>
 
             <input
               type="radio"
               id="alertas"
               name="subcripcion"
-              value="Alertas"
-            />
+              value="Alertas" />
             <label for="alertas">Alertas</label>
 
             <input
               type="radio"
               id="eventos"
               name="subcripcion"
-              value="Eventos"
-            />
+              value="Eventos" />
             <label for="eventos">Eventos</label>
           </div>
         </div>
-
-        <input type="submit" value="Cargar" />
       </form>
 
       <table>
         <thead>
           <tr id="head-tabla">
             <th>Campo</th>
+            <th>Valor</th>
           </tr>
         </thead>
 
@@ -210,7 +199,7 @@
           </tr>
         </tbody>
       </table>
-      <a href="#top"><button id="btnArriba" title="Volver arriba">↑</button></a>
+      <a href="#top"><button id="btnArriba">&#8593</button></a>
 
     </main>
 
@@ -218,5 +207,5 @@
       <p>&copy; 2024 Julián Arrébola</p>
     </footer>
   </body>
-  <script src="script.js"></script>
+
 </html>
