@@ -63,7 +63,7 @@ function comparar() {
 
 function revisarVictoria() {
     const acertadas = document.querySelectorAll(".acertada").length;
-    if (acertadas === 2) {
+    if (acertadas === cartas.length) {
         setTimeout(() => {
             document.getElementById("ganador").classList.remove("oculto");
             document.getElementById("ganador").classList.add("flex");
