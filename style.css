@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Rubik", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0eeee;
@@ -13,21 +15,46 @@ h1 {
   color: #3a8660;
 }
 
+header h2 {
+  font-size: 34px;
+  color: #ffffff;
+}
+
 p {
   text-indent: 20px;
 }
 
-.foto {
+/* INDEX */
+.index {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 34px;
+    color: #000000;
+    margin: 0px 0px;
+  }
+  h2 {
+    color: #0e8349;
+    font-size: 20px;
+    margin: 16px 0px;
+  }
+  img {
+    width: 200px;
+    margin-top: 50px;
+  }
+}
+
+.foto {
   height: 300px;
-  border-radius: 10px;
+  border-radius: 25%;
+  box-shadow: #2e2e2e;
 }
 
 header {
   color: rgb(255, 255, 255);
   text-align: center;
-  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,9 +112,9 @@ nav a {
   display: flex;
   justify-content: space-between;
   background-color: #3a8660;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: sticky;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px;
   top: 0px;
 }
 
@@ -101,23 +128,32 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 20px;
+  padding: 0px 8vw;
   margin-bottom: 20px;
   flex: 1;
 }
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #3a8660;
+  color: white;
+  bottom: 1px;
+}
+
+/* ACERCA DE MI*/
 
 .acercade {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px 10vw;
-  padding: 0px 6px;
+  padding: 4px 30px 4px 4px;
   max-height: 300px;
   overflow-y: auto;
   align-self: center;
   border-radius: 20px;
-    h1 {
+  h1 {
     text-align: center;
     font-size: 24px;
     color: white;
@@ -127,13 +163,13 @@ main {
     opacity: 90%;
   }
 }
-.acercade-contenedor{
+.acercade-contenedor {
   margin-top: 120px;
   text-align: justify;
   font-size: 18px;
   max-height: 380px;
 }
-  
+
 /* Scroll para firefox*/
 .acercade {
   scrollbar-width: thin;
@@ -141,8 +177,6 @@ main {
 }
 
 .acercade-contenedor-cv {
-  margin: 10px 10vw;
-  padding: 0px 6px;
   align-self: center;
 }
 
@@ -152,7 +186,7 @@ main {
   overflow: hidden;
 }
 
-.acercade-cv{
+.acercade-cv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,12 +217,38 @@ main {
   }
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #3a8660;
-  color: white;
-  bottom: 1px;
+.presentacion {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 34px;
+    color: #000000;
+    margin: 0px 0px;
+  }
+
+  h3 {
+    color: #0e8349;
+    font-size: 20px;
+    margin: 6px 0px;
+  }
+  .foto-presentacion {
+    width: 160px;
+  }
+}
+
+.presentacion-titulo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 400px;
+  p {
+    text-indent: 0px;
+    text-align: justify;
+  }
 }
 
 .acercade::-webkit-scrollbar {
@@ -291,99 +351,93 @@ table td {
 }
 
 #btnArriba {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    padding: 12px 20px 14px 20px;
-    font-size: 22px;
-    border: none;
-    border-radius: 50%;
-    background-color: #3a8660;
-    color: white;
-    cursor: pointer;
-    display: none; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    opacity: 90%;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  padding: 12px 20px 14px 20px;
+  font-size: 22px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3a8660;
+  color: white;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  opacity: 90%;
 }
 
 #btnArriba:hover {
-    background-color: #1b5e20;
+  background-color: #1b5e20;
 }
-
 
 /* CSS del juego */
 
 .titulo-juego {
-    font-size: 36px;
-    color: #3a8660;
-    margin: 0px 0px 50px 0px;
+  font-size: 36px;
+  color: #3a8660;
 }
 
 .tablero {
-    width: 400px;
-    height: 400px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 8px;
+  width: 350px;
+  height: 350px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
 }
 
 .carta {
-    background: #2e2e2e;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: transparent;
-    transition: 0.3s;
+  background: #2e2e2e;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  transition: 0.3s;
 }
 
 .carta.revelada {
-    background: #2196F3;
-    color: white; /* Muestra el contenido */
+  background: #2196f3;
+  color: white;
 }
 
 .carta.acertada {
-    background: #4fb482;
-    cursor: default;
+  background: #4fb482;
+  cursor: default;
 }
 
-/* Card flotante al ganar */
-#ganador  {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
+#ganador {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
 }
 
-.flex {
-    display: flex;
-}
 .oculto {
-    display: none;
+  display: none;
 }
 
 #ganador .card {
-    background: #ffffff;
-    color: #000;
-    padding: 25px 40px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0px 0px 20px rgba(255,255,255,0.2);
+  background: #ffffff;
+  color: #000;
+  padding: 25px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
 }
 
 #ganador button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #4CAF50;
-    color: white;
-    font-size: 16px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  font-size: 16px;
 }
