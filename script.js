@@ -1,4 +1,16 @@
-// Esperar que el DOM se cague
+//Mostrar botón para volver arriba
+  let btnArriba = document.getElementById("btnArriba");
+
+  window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+        if (window.scrollY > 200) {
+            btnArriba.style.display = "block";
+        } else {
+            btnArriba.style.display = "none";
+        }
+    });
+
+// Esperar que el DOM se cargue
 document.addEventListener("DOMContentLoaded", (event) => {
   // Botón de leer más del CV
   const cv = document.getElementById("cv");
@@ -13,18 +25,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
           btnLeerMas.textContent = "Leer más";
       }
   });
-
-  //Mostrar botón para volver arriba
-  let btnArriba = document.getElementById("btnArriba");
-
-  window.addEventListener("scroll", () => {
-  console.log(window.scrollY);
-        if (window.scrollY > 200) {
-            btnArriba.style.display = "block";
-        } else {
-            btnArriba.style.display = "none";
-        }
-    });
 });
 
 
@@ -39,7 +39,7 @@ const cuerpoTabla = document.getElementById("cuerpo-tabla");
 const listaTr = document.querySelectorAll("#cuerpo-tabla tr");
 const headTabla = document.querySelector("#head-tabla");
 
-formulario.addEventListener("input", actualizarTabla);
+formulario.addEventListener('focusout', actualizarTabla);
 
 function actualizarTabla() {
   cuerpoTabla.innerHTML = "";
@@ -53,9 +53,8 @@ function actualizarTabla() {
   const provincia = document.querySelector("#provincia");
   const codPostal = document.querySelector("#cod-postal");
   const metodo = document.querySelector('input[name="metodo"]:checked');
-
   const subcripcion = document.querySelector(
-    'input[name="subcripcion"]:checked'
+    'input[name="subscripciones[]"]:checked'
   );
 
   const lista_campos = [
@@ -73,13 +72,23 @@ function actualizarTabla() {
 
   const elementos = formulario.querySelectorAll("input, select, textarea");
   elementos.forEach((elemento, index) => {
-    const valor = lista_campos[index]?.value || "";
+    valor = lista_campos[index]?.value || "";
     const campo = document.querySelector(`label[for="${lista_campos[index]?.id}"]`);
     const nuevaFila = document.createElement("tr");
-    if (!valor && !campo) return;
-    const nuevaCelda = document.createElement("td");
-    nuevaCelda.textContent = campo.textContent;
-    nuevaFila.appendChild(nuevaCelda);
+    if (!valor) return;
+
+    if (lista_campos[index]?.name === "subscripciones[]") {
+      valor = Array.from(
+        document.querySelectorAll('input[name="subscripciones[]"]:checked')
+      ).map((checkbox) => checkbox.value).join(", ");
+      const nuevaCelda = document.createElement("td");
+      nuevaCelda.textContent = "Subscipciones";
+      nuevaFila.appendChild(nuevaCelda);
+    } else {
+      const nuevaCelda = document.createElement("td");
+      nuevaCelda.textContent = campo.textContent;
+      nuevaFila.appendChild(nuevaCelda);
+    }
 
     const nuevaCelda2 = document.createElement("td");
     nuevaCelda2.textContent = valor;
