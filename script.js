@@ -1,100 +1,108 @@
+const paginaActual = document.body.dataset.page;
+
 //Mostrar botón para volver arriba
-  let btnArriba = document.getElementById("btnArriba");
+let btnArriba = document.getElementById("btnArriba");
 
-  window.addEventListener("scroll", () => {
-  console.log(window.scrollY);
-        if (window.scrollY > 200) {
-            btnArriba.style.display = "block";
-        } else {
-            btnArriba.style.display = "none";
-        }
-    });
-
-// Esperar que el DOM se cargue
-document.addEventListener("DOMContentLoaded", (event) => {
-  // Botón de leer más del CV
-  const cv = document.getElementById("cv");
-  const btnLeerMas = document.getElementById("btnLeerMas");
-
-  btnLeerMas.addEventListener("click", () => {
-      cv.classList.toggle("overflow");
-
-      if (cv.classList.contains("overflow")) {
-          btnLeerMas.textContent = "Leer menos";
+window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+          btnArriba.style.display = "block";
       } else {
-          btnLeerMas.textContent = "Leer más";
+          btnArriba.style.display = "none";
       }
   });
-});
 
+
+if (paginaActual === "acercade-data") {
+// Esperar que el DOM se cargue
+  document.addEventListener("DOMContentLoaded", (event) => {
+    // Botón de leer más del CV
+    const cv = document.getElementById("cv");
+    const btnLeerMas = document.getElementById("btnLeerMas");
+
+    btnLeerMas.addEventListener("click", () => {
+        cv.classList.toggle("overflow");
+
+        if (cv.classList.contains("overflow")) {
+            btnLeerMas.textContent = "Leer menos";
+        } else {
+            btnLeerMas.textContent = "Leer más";
+        }
+    });
+  });
+}
 
 function limpearTelefono() {
   document.querySelector("#telefono").value = "";
 }
+if (paginaActual === "contacto") {
+  document.querySelector("#telefono").addEventListener("click", limpearTelefono);
 
-document.querySelector("#telefono").addEventListener("click", limpearTelefono);
 
-const formulario = document.getElementById("formulario");
-const cuerpoTabla = document.getElementById("cuerpo-tabla");
-const listaTr = document.querySelectorAll("#cuerpo-tabla tr");
-const headTabla = document.querySelector("#head-tabla");
+  const formulario = document.getElementById("formulario");
+  const cuerpoTabla = document.getElementById("cuerpo-tabla");
+  const listaTr = document.querySelectorAll("#cuerpo-tabla tr");
+  const headTabla = document.querySelector("#head-tabla");
 
-formulario.addEventListener('focusout', actualizarTabla);
+  formulario.addEventListener('focusout', actualizarTabla);
 
-function actualizarTabla() {
-  cuerpoTabla.innerHTML = "";
+  function actualizarTabla() {
 
-  const nombre = document.querySelector("#nombre");
-  const apellido = document.querySelector("#apellido");
-  const email = document.querySelector("#email");
-  const telefono = document.querySelector("#telefono");
-  const edad = document.querySelector("#edad");
-  const direccion = document.querySelector("#direccion");
-  const provincia = document.querySelector("#provincia");
-  const codPostal = document.querySelector("#cod-postal");
-  const metodo = document.querySelector('input[name="metodo"]:checked');
-  const subcripcion = document.querySelector(
-    'input[name="subscripciones[]"]:checked'
-  );
+    cuerpoTabla.innerHTML = "";
 
-  const lista_campos = [
-    nombre,
-    apellido,
-    email,
-    telefono,
-    edad,
-    direccion,
-    provincia,
-    codPostal,
-    metodo,
-    subcripcion,
-  ];
+    const nombre = document.querySelector("#nombre");
+    const apellido = document.querySelector("#apellido");
+    const email = document.querySelector("#email");
+    const telefono = document.querySelector("#telefono");
+    const edad = document.querySelector("#edad");
+    const direccion = document.querySelector("#direccion");
+    const provincia = document.querySelector("#provincia");
+    const codPostal = document.querySelector("#cod-postal");
+    const metodo = document.querySelector('input[name="metodo"]:checked');
+    const subcripcion = document.querySelector(
+      'input[name="subscripciones[]"]:checked'
+    );
 
-  const elementos = formulario.querySelectorAll("input, select, textarea");
-  elementos.forEach((elemento, index) => {
-    valor = lista_campos[index]?.value || "";
-    const campo = document.querySelector(`label[for="${lista_campos[index]?.id}"]`);
-    const nuevaFila = document.createElement("tr");
-    if (!valor) return;
+    const lista_campos = [
+      nombre,
+      apellido,
+      email,
+      telefono,
+      edad,
+      direccion,
+      provincia,
+      codPostal,
+      metodo,
+      subcripcion,
+    ];
 
-    if (lista_campos[index]?.name === "subscripciones[]") {
-      valor = Array.from(
-        document.querySelectorAll('input[name="subscripciones[]"]:checked')
-      ).map((checkbox) => checkbox.value).join(", ");
-      const nuevaCelda = document.createElement("td");
-      nuevaCelda.textContent = "Subscipciones";
-      nuevaFila.appendChild(nuevaCelda);
-    } else {
-      const nuevaCelda = document.createElement("td");
-      nuevaCelda.textContent = campo.textContent;
-      nuevaFila.appendChild(nuevaCelda);
-    }
-
-    const nuevaCelda2 = document.createElement("td");
-    nuevaCelda2.textContent = valor;
-    nuevaFila.appendChild(nuevaCelda2);
     
-    cuerpoTabla.appendChild(nuevaFila);
-  });
-};
 
+    const elementos = formulario.querySelectorAll("input, select, textarea");
+    elementos.forEach((elemento, index) => {
+
+      valor = lista_campos[index]?.value || "";
+      const campo = document.querySelector(`label[for="${lista_campos[index]?.id}"]`);
+      const nuevaFila = document.createElement("tr");
+      if (!valor) return;
+
+      if (lista_campos[index]?.name === "subscripciones[]") {
+        valor = Array.from(
+          document.querySelectorAll('input[name="subscripciones[]"]:checked')
+        ).map((checkbox) => checkbox.value).join(", ");
+        const nuevaCelda = document.createElement("td");
+        nuevaCelda.textContent = "Subscipciones";
+        nuevaFila.appendChild(nuevaCelda);
+      } else {
+        const nuevaCelda = document.createElement("td");
+        nuevaCelda.textContent = campo.textContent;
+        nuevaFila.appendChild(nuevaCelda);
+      }
+
+      const nuevaCelda2 = document.createElement("td");
+      nuevaCelda2.textContent = valor;
+      nuevaFila.appendChild(nuevaCelda2);
+      
+      cuerpoTabla.appendChild(nuevaFila);
+    });
+  };
+}
