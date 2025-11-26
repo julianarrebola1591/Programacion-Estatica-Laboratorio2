@@ -332,9 +332,10 @@ input[type="submit"] {
 table {
   width: 100%;
   border-collapse: collapse;
+  border-top: 1px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
   margin: 20px 0px 20px 0px;
   font-size: 16px;
-  border-radius: 8px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -352,13 +353,14 @@ table td {
   padding: 12px;
   border-bottom: 1px solid #afafaf;
   border-right: 1px solid #afafaf;
+  border-left: 1px solid #afafaf;
 }
 
 #btnArriba {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  padding: 12px 20px 14px 20px;
+  padding: 12px 20px 18px 20px; 
   font-size: 22px;
   border: none;
   border-radius: 50%;
